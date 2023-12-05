@@ -16,7 +16,7 @@ public class Main {
         for(String b : computer_hand) {
             System.out.println(b);
         }
-        
+
         System.out.println();
 
         for(String c : deck) {

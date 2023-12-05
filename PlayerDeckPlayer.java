@@ -4,7 +4,7 @@ public class PlayerDeckPlayer {
     public String [] player_hand;
     public PlayerDeckPlayer(String[] deck) {
         this.deck = deck;
-        this.player_hand = new String[4];
+        this.player_hand = new String[5];
     }
 
 

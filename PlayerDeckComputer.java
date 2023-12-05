@@ -3,7 +3,7 @@ public class PlayerDeckComputer {
     public String [] computer_hand;
     public PlayerDeckComputer(String[] deck) {
         this.deck = deck;
-        this.computer_hand = new String[4];
+        this.computer_hand = new String[5];
     }
 
 
