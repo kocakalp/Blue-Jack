@@ -1,13 +1,25 @@
 public class Main {
     public static void main(String[] args) {
 
-        GameDeck a = new GameDeck();
+        GameDeck game = new GameDeck();
 
-        String [] decks =a.shuffleDeck();
-        for(String deck : decks) {
-            System.out.println(deck);
+        String [] deck =game.shuffleDeck();
+
+        PlayerDeckPlayer player = new PlayerDeckPlayer(deck);
+        String [] player_hand=player.giveCardstoPlayer();
+
+
+
+
+
+        for(String c : deck) {
+            System.out.println(c);
         }
+        System.out.println();
 
+        for(String a : player_hand) {
+            System.out.println(a);
+        }
 
 
     }

@@ -24,7 +24,6 @@ public class GameDeck {
         String [] cards =crateDeck();
 
         int i = 0;
-        String cardholder=null;
         int b = cards.length-1;
 
         while(i<1100) {
@@ -32,7 +31,7 @@ public class GameDeck {
 
             if(b==-1) { b= cards.length-1; }
 
-            cardholder = cards[a];
+            String cardholder = cards[a];
             cards[a] = cards[b];
             cards[b] = cardholder;
 
