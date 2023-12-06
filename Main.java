@@ -12,8 +12,25 @@ public class Main {
         String [] computer_hand=computer.giveCardstoComputer();
 
 
+        String [] random = game.randomthreeCards();
+        for(String r : random) {
+            System.out.println(r);
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
 
-        for(String b : computer_hand) {
+        String [] random2 = game.randomtwoCards();
+        for(String r : random2) {
+            System.out.println(r);
+        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+
+        /*for(String b : computer_hand) {
             System.out.println(b);
         }
 
@@ -27,7 +44,7 @@ public class Main {
 
         for(String a : player_hand) {
             System.out.println(a);
-        }
+        }*/
 
 
     }
