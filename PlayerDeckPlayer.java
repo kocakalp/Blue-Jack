@@ -140,7 +140,7 @@ public class PlayerDeckPlayer {
         String [] randomtwo_Cards = randomtwoCards();
         String [] randomthree_Cards = randomthreeCards();
         String [] giveCardsto_Player = giveCardstoPlayer();
-        String [] playing_cards = new String [4];
+        String [] playing_cards_player = new String [4];
         int [] random_holder = new int[4];
 
         int b = giveCardsto_Player.length+randomthree_Cards.length+randomtwo_Cards.length;
@@ -171,11 +171,12 @@ public class PlayerDeckPlayer {
                     break;
                 }
             }
-            playing_cards[i] = allcards[random];
+            playing_cards_player[i] = allcards[random];
             random_holder[i] = random;
         }
-        return playing_cards;
+        return playing_cards_player;
     }
+
 
 
 

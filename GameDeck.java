@@ -47,6 +47,18 @@ public class GameDeck {
         return cards ;
     }
 
+    public static String[] gameDeck(String [] a) {
+
+        String [] shuffled_deck =a;
+        String [] cards = new String [shuffled_deck.length-10];
+        int f=0;
+
+        for(int i=5;i<shuffled_deck.length-5;i++) {
+        cards[f]=shuffled_deck[i];
+        f++;
+        }
+        return cards;
+    }
 
 
 

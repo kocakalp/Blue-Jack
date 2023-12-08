@@ -141,6 +141,48 @@ public class PlayerDeckComputer {
     }
 
 
+    public  String[] lastfourCards(){
+        Random r = new Random();
+        String [] randomtwo_Cards = randomtwoCards();
+        String [] randomthree_Cards = randomthreeCards();
+        String [] giveCardsto_Computer = giveCardstoComputer();
+        String [] playing_cards_computer = new String [4];
+        int [] random_holder = new int[4];
+
+        int b = giveCardsto_Computer.length+randomthree_Cards.length+randomtwo_Cards.length;
+
+        String [] allcards = new String [b];
+
+        for(int j =0;j<randomtwo_Cards.length;j++){
+            allcards[j] = randomtwo_Cards[j];
+        }
+        for(int n=randomtwo_Cards.length;n<randomthree_Cards.length+randomtwo_Cards.length;n++){
+            allcards[n] = randomthree_Cards[n - randomtwo_Cards.length];
+        }
+        for(int t= randomtwo_Cards.length + randomthree_Cards.length;t<b;t++){
+            allcards[t] = giveCardsto_Computer[t - randomtwo_Cards.length - randomthree_Cards.length];
+        }
+
+
+
+
+
+        for(int i = 0;i<random_holder.length ;i++) {
+
+            int random = r.nextInt(b);
+
+            for(int k=0;k<random_holder.length;k++) {
+                if(random_holder[k] == random) {
+                    random = r.nextInt(b);
+                    break;
+                }
+            }
+            playing_cards_computer[i] = allcards[random];
+            random_holder[i] = random;
+        }
+        return playing_cards_computer;
+    }
+
 
 
 
