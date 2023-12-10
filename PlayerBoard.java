@@ -26,7 +26,6 @@ public class PlayerBoard {
     }
 
     public  void handToBoard(String[] player_hand,int m){
-        boardPlayer();
         m--;
         for(int i=0;i<player_board.length;i++) {
             if((player_board[i]==null)) {
@@ -34,6 +33,21 @@ public class PlayerBoard {
                 break;
             }
         }
-
     }
+
+
+        public void printPlayerBoard() {
+            for(int i=0;i<player_board.length;i++) {
+                if(!(player_board[i]==null)) {
+                    System.out.print(player_board[i]);
+                }
+            }
+
+
+
+
+        }
+
+
+
 }

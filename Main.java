@@ -128,10 +128,15 @@ public class Main {
                     if(!(1<=m && m<=4)){
                         System.out.println("Enter between 1-4");
                     } else {
+
                         playerboard.handToBoard(player_hand,m);
                         player.remove(player_hand,m);
                     }
                 }while (!(1<=m && m<=4));
+            }
+            else if(!(v==1||v==0)) {
+                System.out.println("Invalid value");
+                System.out.println("Use one of your cards: 0->No: 1->Yes");
             }
         }while(!(v==1||v==0));
         System.out.println();
@@ -153,6 +158,53 @@ public class Main {
         System.out.println("-------------------------------------------");
 
         System.out.print("Computer Board: ");
+        System.out.println();
+        System.out.println("-------------------------------------------");
+
+        System.out.print("Player Board: ");
+        playerboard.printPlayerBoard();
+        System.out.println();
+        System.out.println("-------------------------------------------");
+
+        System.out.print("Player Hand : ");
+        for(String a : player_hand) {
+            if(!(a==null)) {
+                System.out.print(a+" ");
+            }
+        }
+
+        System.out.println();
+        System.out.println("-------------------------------------------");
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+
+
+
+
+
+
+
+
+
+
+
+
+        System.out.println("-------------------------------------------");
+        System.out.print("Computer Hand: ");
+
+        for(String b : computer_hand) {
+            System.out.print(b+" ");
+        }
+
+        System.out.println();
+        System.out.println("-------------------------------------------");
+
+        System.out.print("Computer Board: ");
         for(String f : computerboardarray) {
             if(!(f==null)) {System.out.print(f);}
         }
@@ -160,15 +212,15 @@ public class Main {
         System.out.println("-------------------------------------------");
 
         System.out.print("Player Board: ");
-        for(String f : playerboardarray) {
-            if(!(f==null)) {System.out.print(f);}
-        }
+        playerboard.printPlayerBoard();
         System.out.println();
         System.out.println("-------------------------------------------");
 
         System.out.print("Player Hand : ");
         for(String a : player_hand) {
-            System.out.print(a+" ");
+            if(!(a==null)) {
+                System.out.print(a+" ");
+            }
         }
 
         System.out.println();
