@@ -4,6 +4,7 @@ public class PlayerDeckPlayer {
 
     public String [] deck;
     public String [] player_hand;
+
     public PlayerDeckPlayer(String[] deck) {
         this.deck = deck;
         this.player_hand = new String[5];
@@ -157,10 +158,6 @@ public class PlayerDeckPlayer {
             allcards[t] = giveCardsto_Player[t - randomtwo_Cards.length - randomthree_Cards.length];
         }
 
-
-
-
-
         for(int i = 0;i<random_holder.length ;i++) {
 
             int random = r.nextInt(b);
@@ -177,6 +174,16 @@ public class PlayerDeckPlayer {
         return playing_cards_player;
     }
 
+
+
+    public  void remove(String [] player_hand,int m) {
+        m--;
+        for(int i=m;i< player_hand.length-1;i++) {
+            player_hand[i]=player_hand[i+1];
+        }
+        player_hand[player_hand.length-1] =null;
+
+    }
 
 
 
