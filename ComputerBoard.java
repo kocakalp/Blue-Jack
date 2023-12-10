@@ -2,10 +2,12 @@ public class ComputerBoard {
     public String [] gamedeck;
     public String [] computer_board;
 
+
     public ComputerBoard(String[] gamedeck) {
         this.gamedeck = gamedeck;
         this.computer_board = new String[30];
     }
+
 
 
     public  String[] boardComputer(){
@@ -24,4 +26,23 @@ public class ComputerBoard {
         }
         return computer_board;
     }
+
+    public  void CompterhandToBoard(String[] computer_hand,int m){
+        m--;
+        for(int i=0;i<computer_board.length;i++) {
+            if((computer_board[i]==null)) {
+                computer_board[i]=computer_hand[m];
+                break;
+            }
+        }
+    }
+    public void printComputerBoard() {
+        for(int i=0;i<computer_board.length;i++) {
+            if(!(computer_board[i]==null)) {
+                System.out.print(computer_board[i]);
+            }
+        }
+    }
+
+
 }

@@ -146,7 +146,6 @@ public class Main {
         System.out.println();
 
 
-
         System.out.println("-------------------------------------------");
         System.out.print("Computer Hand: ");
 
@@ -181,18 +180,6 @@ public class Main {
         System.out.println();
         System.out.println();
         System.out.println();
-
-
-
-
-
-
-
-
-
-
-
-
 
         System.out.println("-------------------------------------------");
         System.out.print("Computer Hand: ");
@@ -227,6 +214,62 @@ public class Main {
         System.out.println("-------------------------------------------");
 
 
+
+        for(int d=0;d<gamedeck.length;d++) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Computer Board: ");
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Board: ");
+            for(String f : playerboardarray) {
+                if(!(f==null)) {System.out.print(f);}
+            }
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Hand : ");
+            for(String a : player_hand) {
+                System.out.print(a+" ");
+            }
+
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.println("Use one of your cards: 0->No: 1->Yes" );
+            
+            int h =0;
+            int q=1;
+            do {
+                h= sc.nextInt();
+                if (h ==1) {
+                    System.out.println("Enter a value between 1-4:");
+                    do {
+
+                        q = sc.nextInt();
+                        if(!(1<=q && q<=4)){
+                            System.out.println("Enter between 1-4");
+                        } else {
+
+                            playerboard.handToBoard(player_hand,q);
+                            player.remove(player_hand,q);
+                        }
+                    }while (!(1<=q && q<=4));
+                }
+                else if(!(h==1||h==0)) {
+                    System.out.println("Invalid value");
+                    System.out.println("Use one of your cards: 0->No: 1->Yes");
+                }
+            }while(!(h==1||h==0));
+
+
+        }
 
 
 

@@ -184,7 +184,14 @@ public class PlayerDeckComputer {
     }
 
 
+    public  void remove(String [] computer_hand,int m) {
+        m--;
+        for(int i=m;i< computer_hand.length-1;i++) {
+            computer_hand[i]=computer_hand[i+1];
+        }
+        computer_hand[computer_hand.length-1] =null;
 
+    }
 
 
 

@@ -42,10 +42,6 @@ public class PlayerBoard {
                     System.out.print(player_board[i]);
                 }
             }
-
-
-
-
         }
 
 
