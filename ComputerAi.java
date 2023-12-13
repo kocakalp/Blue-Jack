@@ -25,7 +25,7 @@ public class ComputerAi {
             }
         }
         if(sum==20) {
-            System.out.println("Computer make 20");
+            System.out.println("Computer make 20 by deck");
         } else {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
@@ -33,7 +33,7 @@ public class ComputerAi {
                     holder=holder.substring(0,2);
                      d =Integer.parseInt(holder);
                     if(sum+d==20) {
-                        System.out.println("Computer make 20");
+                        System.out.println("Computer make 20 by hand ");
 
                         break;
                     }

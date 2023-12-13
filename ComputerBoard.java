@@ -5,7 +5,7 @@ public class ComputerBoard {
 
     public ComputerBoard(String[] gamedeck) {
         this.gamedeck = gamedeck;
-        this.computer_board = new String[30];
+        this.computer_board = new String[9];
     }
 
 

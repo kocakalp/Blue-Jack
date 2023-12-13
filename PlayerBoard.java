@@ -4,7 +4,7 @@ public class PlayerBoard {
 
     public PlayerBoard(String[] gamedeck) {
         this.gamedeck = gamedeck;
-        this.player_board = new String[30];
+        this.player_board = new String[9];
     }
 
 

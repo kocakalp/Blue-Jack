@@ -40,8 +40,7 @@ public class Main {
         */
 
 
-
-
+        System.out.println("Oyun Sahasının görünümü");
 
         System.out.println();
         System.out.println();
@@ -83,7 +82,7 @@ public class Main {
         System.out.println();
         System.out.println();
 
-
+        System.out.println("İlk Tur oyuncunun boardına kart alma");
 
         System.out.println("-------------------------------------------");
         System.out.print("Computer Hand: ");
@@ -145,6 +144,7 @@ public class Main {
         System.out.println();
         System.out.println();
 
+        System.out.println("OYUNCUNUN HARKETİNİN GÖZÜKMESİ");
 
         System.out.println("-------------------------------------------");
         System.out.print("Computer Hand: ");
@@ -175,12 +175,14 @@ public class Main {
         System.out.println();
         System.out.println("-------------------------------------------");
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
 
+
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("2. Tur bilgisayın kart alması");
         System.out.println("-------------------------------------------");
         System.out.print("Computer Hand: ");
 
@@ -219,15 +221,24 @@ public class Main {
             System.out.println();
             System.out.println();
             System.out.println();
+            System.out.println("-------------------------------------------");
+            System.out.print("Computer Hand: ");
+            for(String b : computer_hand) {
+                if(!(b==null)) {
+                    System.out.print(b + " ");
+                }
+            }
 
-
+            System.out.println();
             System.out.println("-------------------------------------------");
 
             System.out.print("Computer Board: ");
+            computerboard.printComputerBoard();
             System.out.println();
             System.out.println("-------------------------------------------");
 
             System.out.print("Player Board: ");
+            playerboardarray =playerboard.boardPlayer();
             for(String f : playerboardarray) {
                 if(!(f==null)) {System.out.print(f);}
             }
@@ -236,7 +247,9 @@ public class Main {
 
             System.out.print("Player Hand : ");
             for(String a : player_hand) {
-                System.out.print(a+" ");
+                if(!(a==null)) {
+                    System.out.print(a+" ");
+                }
             }
 
             System.out.println();
@@ -268,7 +281,80 @@ public class Main {
                 }
             }while(!(h==1||h==0));
 
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
 
+            System.out.println("OYUNCUNUN HARKETİNİN GÖZÜKMESİ");
+
+            System.out.println("-------------------------------------------");
+            System.out.print("Computer Hand: ");
+
+            for(String b : computer_hand) {
+                System.out.print(b+" ");
+            }
+
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Computer Board: ");
+            computerboard.printComputerBoard();
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Board: ");
+            playerboard.printPlayerBoard();
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Hand : ");
+            for(String a : player_hand) {
+                if(!(a==null)) {
+                    System.out.print(a+" ");
+                }
+            }
+
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("Bilgisayarın Oynaması");
+            System.out.println("-------------------------------------------");
+            System.out.print("Computer Hand: ");
+            for(String b : computer_hand) {
+                if(!(b==null)) {
+                    System.out.print(b + " ");
+                }
+            }
+            System.out.println();
+            System.out.println("-------------------------------------------");
+            System.out.print("Computer Board: ");
+            computerboardarray =computerboard.boardComputer();
+            for(String f : computerboardarray) {
+                if(!(f==null)) {System.out.print(f);}
+            }
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Board: ");
+            playerboard.printPlayerBoard();
+            System.out.println();
+            System.out.println("-------------------------------------------");
+
+            System.out.print("Player Hand : ");
+            for(String a : player_hand) {
+                if(!(a==null)) {
+                    System.out.print(a+" ");
+                }
+            }
+
+            System.out.println();
+            System.out.println("-------------------------------------------");
         }
 
 
