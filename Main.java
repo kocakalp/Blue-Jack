@@ -116,15 +116,25 @@ public class Main {
 
         System.out.println("Use one of your cards: 0->No: 1->Yes" );
         Scanner sc = new Scanner(System.in);
-        int v =0;
+        String v =null;
         int m=1;
         do {
-             v= sc.nextInt();
-            if (v ==1) {
+             v= sc.nextLine();
+            if (v.equals("1")) {
                 System.out.println("Enter a value between 1-4:");
                 do {
-
-                    m = sc.nextInt();
+                    boolean w=true;
+                    while(w) {
+                        try {
+                            m = sc.nextInt();
+                            w= false;
+                        }catch (Exception e) {
+                            sc.nextLine();
+                            System.out.println("Invalid value");
+                            System.out.println("Enter between 1-4");
+                            w=true;
+                        }
+                    }
                     if(!(1<=m && m<=4)){
                         System.out.println("Enter between 1-4");
                     } else {
@@ -134,11 +144,11 @@ public class Main {
                     }
                 }while (!(1<=m && m<=4));
             }
-            else if(!(v==1||v==0)) {
+            else if(!(v.equals("1")||v.equals("0"))) {
                 System.out.println("Invalid value");
                 System.out.println("Use one of your cards: 0->No: 1->Yes");
             }
-        }while(!(v==1||v==0));
+        }while(!(v.equals("1")||v.equals("0")));
         System.out.println();
         System.out.println();
         System.out.println();
@@ -258,15 +268,25 @@ public class Main {
 
             System.out.println("Use one of your cards: 0->No: 1->Yes" );
             
-            int h =0;
+            String h =null;
             int q=1;
             do {
-                h= sc.nextInt();
-                if (h ==1) {
+                h= sc.nextLine();
+                if (h.equals("1")) {
                     System.out.println("Enter a value between 1-4:");
                     do {
-
-                        q = sc.nextInt();
+                        boolean w=true;
+                        while(w) {
+                            try {
+                                q=sc.nextInt();
+                                w = false;
+                            }catch (Exception e) {
+                                sc.nextLine();
+                                System.out.println("Invalid value");
+                                System.out.println("Enter between 1-4");
+                                w=true;
+                            }
+                        }
                         if(!(1<=q && q<=4)){
                             System.out.println("Enter between 1-4");
                         } else {
@@ -276,11 +296,11 @@ public class Main {
                         }
                     }while (!(1<=q && q<=4));
                 }
-                else if(!(h==1||h==0)) {
+                else if(!(h.equals("1")||h.equals("0"))) {
                     System.out.println("Invalid value");
                     System.out.println("Use one of your cards: 0->No: 1->Yes");
                 }
-            }while(!(h==1||h==0));
+            }while(!(h.equals("1")||h.equals("0")));
 
             System.out.println();
             System.out.println();
