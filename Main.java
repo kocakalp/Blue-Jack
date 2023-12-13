@@ -23,6 +23,7 @@ public class Main {
 
 
 
+
         /*for(String b : computer_hand) {
             System.out.println(b);
 
@@ -338,6 +339,8 @@ public class Main {
             for(String f : computerboardarray) {
                 if(!(f==null)) {System.out.print(f);}
             }
+            ComputerAi computerai = new ComputerAi(computer_hand,computerboardarray);
+            computerai.ai();
             System.out.println();
             System.out.println("-------------------------------------------");
 
