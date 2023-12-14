@@ -13,19 +13,23 @@ public class ComputerAi {
     }
 
 
-    public void ai() {
+    public boolean ai() {
         int sum=0;
         int d=0;
-        for(int i=0;i<computerboardarray.length;i++) {
+        int i=0;
+        for( i=0;i<computerboardarray.length;i++) {
             if(!(computerboardarray[i]==null)) {
                 String holder=computerboardarray[i];
                 holder=holder.substring(0,2);
                  d =Integer.parseInt(holder);
                 sum+= d;
             }
+            if((computerboardarray[i]==null)) {
+                break;
+            }
         }
         if(sum==20) {
-            System.out.println("Computer make 20 by deck");
+            return true;
         } else {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
@@ -33,12 +37,14 @@ public class ComputerAi {
                     holder=holder.substring(0,2);
                      d =Integer.parseInt(holder);
                     if(sum+d==20) {
-                        System.out.println("Computer make 20 by hand ");
+                        computerboardarray[i+1]=computer_hand[f];
+                        computer_hand[f]=null;
+                        return true;
 
-                        break;
                     }
                 }
             }
         }
+        return false;
     }
 }

@@ -1,6 +1,12 @@
 import java.util.Scanner;
 public class Main {
+    public static void Computerwins() {
+        System.out.println();
+        System.out.println("Computer Won");
+    }
+
     public static void main(String[] args) {
+
 
         GameDeck game = new GameDeck();
 
@@ -72,7 +78,7 @@ public class Main {
 
         System.out.println();
         System.out.println("-------------------------------------------");
-
+////////////////////////////////////////////////////////////////////////
 
 
 
@@ -149,6 +155,9 @@ public class Main {
                 System.out.println("Use one of your cards: 0->No: 1->Yes");
             }
         }while(!(v.equals("1")||v.equals("0")));
+        ///////////////////////////////////////////////////////////////////////////////////////
+
+
         System.out.println();
         System.out.println();
         System.out.println();
@@ -186,7 +195,7 @@ public class Main {
         System.out.println();
         System.out.println("-------------------------------------------");
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         System.out.println();
         System.out.println();
@@ -227,7 +236,7 @@ public class Main {
         System.out.println("-------------------------------------------");
 
 
-
+///////////////////////////////////////////////////////////////////////////////////////
         for(int d=0;d<gamedeck.length;d++) {
             System.out.println();
             System.out.println();
@@ -301,7 +310,7 @@ public class Main {
                     System.out.println("Use one of your cards: 0->No: 1->Yes");
                 }
             }while(!(h.equals("1")||h.equals("0")));
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             System.out.println();
             System.out.println();
             System.out.println();
@@ -339,7 +348,7 @@ public class Main {
 
             System.out.println();
             System.out.println("-------------------------------------------");
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             System.out.println();
             System.out.println();
@@ -360,7 +369,7 @@ public class Main {
                 if(!(f==null)) {System.out.print(f);}
             }
             ComputerAi computerai = new ComputerAi(computer_hand,computerboardarray);
-            computerai.ai();
+            boolean control =computerai.ai();
             System.out.println();
             System.out.println("-------------------------------------------");
 
@@ -375,9 +384,19 @@ public class Main {
                     System.out.print(a+" ");
                 }
             }
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////
             System.out.println();
             System.out.println("-------------------------------------------");
+            if(control) {
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                
+                Computerwins();
+                break;
+
+            }
         }
 
 
