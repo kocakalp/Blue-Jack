@@ -4,9 +4,14 @@ public class Main {
         System.out.println();
         System.out.println("Computer Won");
     }
+    public static void Playerwins() {
+        System.out.println();
+        System.out.println("Player Won");
+    }
 
     public static void main(String[] args) {
-
+        int playerWins = 0;
+        int computerWins = 0;
 
         GameDeck game = new GameDeck();
 
@@ -194,6 +199,18 @@ public class Main {
 
         System.out.println();
         System.out.println("-------------------------------------------");
+        PlayerAi playerai1 = new PlayerAi(playerboardarray);
+        boolean controlplayer1 =playerai1.ai();
+        if(controlplayer1) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+
+            Playerwins();
+
+
+        }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -348,6 +365,18 @@ public class Main {
 
             System.out.println();
             System.out.println("-------------------------------------------");
+            PlayerAi playerai = new PlayerAi(playerboardarray);
+            boolean controlplayer =playerai.ai();
+            if(controlplayer) {
+                System.out.println();
+                System.out.println();
+                System.out.println();
+                System.out.println();
+
+                Playerwins();
+                break;
+
+            }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             System.out.println();
