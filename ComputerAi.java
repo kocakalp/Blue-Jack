@@ -20,9 +20,15 @@ public class ComputerAi {
         for( i=0;i<computerboardarray.length;i++) {
             if(!(computerboardarray[i]==null)) {
                 String holder=computerboardarray[i];
-                holder=holder.substring(0,2);
-                 d =Integer.parseInt(holder);
-                sum+= d;
+                if(holder.substring(1,3).equals("10")) {
+                    holder=holder.substring(0,3);
+                    d =Integer.parseInt(holder);
+                    sum+=d;
+                } else {
+                    holder=holder.substring(0,2);
+                    d =Integer.parseInt(holder);
+                    sum+= d;
+                }
             }
             if((computerboardarray[i]==null)) {
                 break;
@@ -34,8 +40,14 @@ public class ComputerAi {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
                     String holder=computer_hand[f];
-                    holder=holder.substring(0,2);
-                     d =Integer.parseInt(holder);
+                    if(holder.substring(1,3).equals("10")) {
+                        holder=holder.substring(0,3);
+                        d =Integer.parseInt(holder);
+                        sum+=d;
+                    }else {
+                        holder=holder.substring(0,2);
+                        d =Integer.parseInt(holder);
+                    }
                     if(sum+d==20) {
                         computerboardarray[i+1]=computer_hand[f];
                         computer_hand[f]=null;
