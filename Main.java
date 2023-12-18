@@ -32,8 +32,8 @@ public class Main {
             ComputerBoard computerboard = new ComputerBoard(gamedeck);
             String[] computerboardarray = computerboard.boardComputer();
 
-
-
+            Scanner sc= new Scanner(System.in);
+            int c=0;
 
 
         /*for(String b : computer_hand) {
@@ -94,7 +94,7 @@ public class Main {
             System.out.println();
             System.out.println();
 
-            System.out.println("İlk Tur oyuncunun boardına kart alma");
+          /*  System.out.println("İlk Tur oyuncunun boardına kart alma");
 
             System.out.println("-------------------------------------------");
             System.out.print("Computer Hand: ");
@@ -252,7 +252,7 @@ public class Main {
             }
 
             System.out.println();
-            System.out.println("-------------------------------------------");
+            System.out.println("-------------------------------------------");*/
 
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -272,12 +272,17 @@ public class Main {
                 System.out.println("-------------------------------------------");
 
                 System.out.print("Computer Board: ");
-                computerboard.printComputerBoard();
+                if(c>0) {
+                    computerboard.printComputerBoard();
+                }
                 System.out.println();
                 System.out.println("-------------------------------------------");
 
                 System.out.print("Player Board: ");
-                playerboardarray = playerboard.boardPlayer();
+                if(c>0) {
+                    playerboardarray = playerboard.boardPlayer();
+                }
+
                 for (String f : playerboardarray) {
                     if (!(f == null)) {
                         System.out.print(f);
@@ -350,7 +355,9 @@ public class Main {
                 System.out.println("-------------------------------------------");
 
                 System.out.print("Computer Board: ");
-                computerboard.printComputerBoard();
+                if(c>0) {
+                    computerboard.printComputerBoard();
+                }
                 System.out.println();
                 System.out.println("-------------------------------------------");
 
@@ -397,7 +404,12 @@ public class Main {
                 System.out.println();
                 System.out.println("-------------------------------------------");
                 System.out.print("Computer Board: ");
-                computerboardarray = computerboard.boardComputer();
+                if(c>0) {
+                    computerboardarray = computerboard.boardComputer();
+                }
+
+
+
                 for (String f : computerboardarray) {
                     if (!(f == null)) {
                         System.out.print(f);
@@ -422,6 +434,7 @@ public class Main {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
                 System.out.println();
                 System.out.println("-------------------------------------------");
+                c++;
                 if (control) {
                     System.out.println();
                     System.out.println();

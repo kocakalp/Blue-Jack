@@ -34,8 +34,6 @@ public class GameDeck {
             String cardholder = cards[a];
             cards[a] = cards[b];
             cards[b] = cardholder;
-
-
             i++;
             b--;
         }
