@@ -376,6 +376,17 @@ public class Main {
                 System.out.println();
                 System.out.println("-------------------------------------------");
                 PlayerAi playerai = new PlayerAi(playerboardarray);
+                int bluejack= playerai.Bluejack();
+                if(bluejack==1) {
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+
+                    playerWins=+3;
+                    break;
+
+                }
                 boolean controlplayer = playerai.ai();
                 if (controlplayer) {
                     System.out.println();
@@ -416,6 +427,7 @@ public class Main {
                     }
                 }
                 ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
+                int bluejack1 =computerai.Bluejack();
                 boolean control = computerai.ai();
                 System.out.println();
                 System.out.println("-------------------------------------------");
@@ -435,6 +447,16 @@ public class Main {
                 System.out.println();
                 System.out.println("-------------------------------------------");
                 c++;
+
+                if(bluejack1==1) {
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+
+                    computerWins=+3;
+                    break;
+                }
                 if (control) {
                     System.out.println();
                     System.out.println();
@@ -450,9 +472,9 @@ public class Main {
 
 
         }
-        if (playerWins == 3) {
+        if (playerWins > 3) {
             System.out.println("Player is the overall winner!");
-        } else if(computerWins == 3) {
+        } else if(computerWins > 3) {
             System.out.println("Computer is the overall winner!");
         }
     }
