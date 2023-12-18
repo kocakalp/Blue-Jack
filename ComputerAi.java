@@ -12,7 +12,7 @@ public class ComputerAi {
         this.playerDeckComputer = new PlayerDeckComputer(computer_hand);
     }
 
-    public int Bluejack() {
+   /* public int Bluejack() {
         int sum=0;
         int d=0;
         int i=0;
@@ -64,12 +64,13 @@ public class ComputerAi {
             }
         }
         return 0;
-    }
+    }*/
 
-    public boolean ai() {
+    public int ai() {
         int sum=0;
         int d=0;
         int i=0;
+        int over20=0;
         for( i=0;i<computerboardarray.length;i++) {
             if(!(computerboardarray[i]==null)) {
                 String holder=computerboardarray[i];
@@ -83,12 +84,13 @@ public class ComputerAi {
                     sum+= d;
                 }
             }
+            over20=sum;
             if((computerboardarray[i]==null)) {
                 break;
             }
         }
         if(sum==20) {
-            return true;
+            return 20;
         } else {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
@@ -100,16 +102,42 @@ public class ComputerAi {
                     }else {
                         holder=holder.substring(0,2);
                         d =Integer.parseInt(holder);
+                        sum+=d;
                     }
                     if(sum+d==20) {
                         computerboardarray[i+1]=computer_hand[f];
                         computer_hand[f]=null;
-                        return true;
+                        return 20;
                     }
                 }
             }
         }
-        return false;
+        if(over20>20) {
+            int max=0;
+            int indexOfMax=-1;
+
+            for(int f=0;f<computer_hand.length;f++) {
+                if(!(computer_hand[f]==null)) {
+                    String holder=computer_hand[f];
+
+                    if(holder.substring(1,3).equals("10")) {
+                        holder=holder.substring(0,3);
+                    } else {
+                        holder=holder.substring(0,2);
+                    }
+                    d =Integer.parseInt(holder);
+
+                    if(over20-d < 20 && over20-d > max ) {
+                        max = over20-d;
+                        indexOfMax=f;
+                    }
+                }
+            }
+            computerboardarray[i+1]=computer_hand[indexOfMax];
+            computer_hand[indexOfMax]=null;
+            return indexOfMax;
+        }
+        return 0;
     }
 
 

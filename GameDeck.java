@@ -26,7 +26,7 @@ public class GameDeck {
         int i = 0;
         int b = cards.length-1;
 
-        while(i<1100) {
+        while(i<2000) {
             int a = r.nextInt(crateDeck().length);
 
             if(b==-1) { b= cards.length-1; }
@@ -37,11 +37,6 @@ public class GameDeck {
             i++;
             b--;
         }
-
-
-
-
-
         return cards ;
     }
 

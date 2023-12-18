@@ -35,7 +35,7 @@ public class PlayerAi {
 
 
 
-    public boolean ai() {
+    public int ai() {
         int sum=0;
         int d=0;
         for(String a : playerboardarray) {
@@ -52,9 +52,11 @@ public class PlayerAi {
                 }
             }
             if(sum==20) {
-                return true;
+                return 20;
+            } else if (sum>20) {
+                return sum;
             }
         }
-        return false;
+        return 0;
     }
 }

@@ -8,6 +8,10 @@ public class Main {
         System.out.println();
         System.out.println("Player Won");
     }
+    public static void Draw() {
+        System.out.println();
+        System.out.println("No one gets point");
+    }
 
     public static void main(String[] args) {
         int playerWins = 0;
@@ -34,8 +38,9 @@ public class Main {
 
             Scanner sc= new Scanner(System.in);
             int c=0;
-
-
+            boolean stand = false;
+            boolean standcomputer = false;
+            int control =0;
         /*for(String b : computer_hand) {
             System.out.println(b);
 
@@ -260,221 +265,247 @@ public class Main {
                 System.out.println();
                 System.out.println();
                 System.out.println();
-                System.out.println("-------------------------------------------");
-                System.out.print("Computer Hand: ");
-                for (String b : computer_hand) {
-                    if (!(b == null)) {
-                        System.out.print(b + " ");
-                    }
-                }
+               if(!(stand)) {
+                   System.out.println("-------------------------------------------");
+                   System.out.print("Computer Hand: ");
+                   for (String b : computer_hand) {
+                       if (!(b == null)) {
+                           System.out.print(b + " ");
+                       }
+                   }
 
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Computer Board: ");
-                if(c>0) {
-                    computerboard.printComputerBoard();
-                }
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.print("Computer Board: ");
+                   if (c > 0) {
+                       computerboard.printComputerBoard();
+                   }
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Player Board: ");
-                if(c>0) {
-                    playerboardarray = playerboard.boardPlayer();
-                }
+                   System.out.print("Player Board: ");
+                   if (c > 0) {
+                       playerboardarray = playerboard.boardPlayer();
+                   }
 
-                for (String f : playerboardarray) {
-                    if (!(f == null)) {
-                        System.out.print(f);
-                    }
-                }
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   for (String f : playerboardarray) {
+                       if (!(f == null)) {
+                           System.out.print(f);
+                       }
+                   }
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Player Hand : ");
-                for (String a : player_hand) {
-                    if (!(a == null)) {
-                        System.out.print(a + " ");
-                    }
-                }
+                   System.out.print("Player Hand : ");
+                   for (String a : player_hand) {
+                       if (!(a == null)) {
+                           System.out.print(a + " ");
+                       }
+                   }
 
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.println("Use one of your cards: 0->No: 1->Yes");
+                   System.out.println("End your turn---> Press: 0");
+                   System.out.println("Use one of your cards---> Press: 1");
+                   System.out.println("Stand---> Press: 2");
+                   String h = null;
+                   int q = 1;
+                   do {
+                       h = sc.nextLine();
+                       if (h.equals("1")) {
+                           System.out.println("Enter a value between 1-4:");
+                           do {
+                               boolean w = true;
+                               while (w) {
+                                   try {
+                                       q = sc.nextInt();
+                                       sc.nextLine();
+                                       w = false;
+                                   } catch (Exception e) {
+                                       sc.nextLine();
+                                       System.out.println("Invalid value");
+                                       System.out.println("Enter between 1-4");
+                                       w = true;
+                                   }
+                               }
+                               if (!(1 <= q && q <= 4)) {
+                                   System.out.println("Enter between 1-4");
+                               } else {
 
-                String h = null;
-                int q = 1;
-                do {
-                    h = sc.nextLine();
-                    if (h.equals("1")) {
-                        System.out.println("Enter a value between 1-4:");
-                        do {
-                            boolean w = true;
-                            while (w) {
-                                try {
-                                    q = sc.nextInt();
-                                    w = false;
-                                } catch (Exception e) {
-                                    sc.nextLine();
-                                    System.out.println("Invalid value");
-                                    System.out.println("Enter between 1-4");
-                                    w = true;
-                                }
-                            }
-                            if (!(1 <= q && q <= 4)) {
-                                System.out.println("Enter between 1-4");
-                            } else {
-
-                                playerboard.handToBoard(player_hand, q);
-                                player.remove(player_hand, q);
-                            }
-                        } while (!(1 <= q && q <= 4));
-                    } else if (!(h.equals("1") || h.equals("0"))) {
-                        System.out.println("Invalid value");
-                        System.out.println("Use one of your cards: 0->No: 1->Yes");
-                    }
-                } while (!(h.equals("1") || h.equals("0")));
+                                   playerboard.handToBoard(player_hand, q);
+                                   player.remove(player_hand, q);
+                               }
+                           } while (!(1 <= q && q <= 4));
+                       } else if (!(h.equals("1") || h.equals("0") || h.equals("2"))) {
+                           System.out.println("Invalid value");
+                           System.out.println("End your turn---> Press: 0");
+                           System.out.println("Use one of your cards---> Press: 1");
+                           System.out.println("Stand---> Press: 2");
+                       } else if (h.equals("2")) {
+                           System.out.println("You chose to stand");
+                           stand = true;
+                       }
+                   } while (!(h.equals("1") || h.equals("0") || h.equals("2")));
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
-                System.out.println();
+                   System.out.println();
+                   System.out.println();
+                   System.out.println();
+                   System.out.println();
+                   System.out.println();
 
-                System.out.println("OYUNCUNUN HARKETİNİN GÖZÜKMESİ");
+                   System.out.println("OYUNCUNUN HARKETİNİN GÖZÜKMESİ");
 
-                System.out.println("-------------------------------------------");
-                System.out.print("Computer Hand: ");
+                   System.out.println("-------------------------------------------");
+                   System.out.print("Computer Hand: ");
 
-                for (String b : computer_hand) {
-                    System.out.print(b + " ");
-                }
+                   for (String b : computer_hand) {
+                       System.out.print(b + " ");
+                   }
 
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Computer Board: ");
-                if(c>0) {
-                    computerboard.printComputerBoard();
-                }
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.print("Computer Board: ");
+                   if (c > 0) {
+                       computerboard.printComputerBoard();
+                   }
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Player Board: ");
-                playerboard.printPlayerBoard();
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                   System.out.print("Player Board: ");
+                   playerboard.printPlayerBoard();
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                System.out.print("Player Hand : ");
-                for (String a : player_hand) {
-                    if (!(a == null)) {
-                        System.out.print(a + " ");
-                    }
-                }
+                   System.out.print("Player Hand : ");
+                   for (String a : player_hand) {
+                       if (!(a == null)) {
+                           System.out.print(a + " ");
+                       }
+                   }
 
-                System.out.println();
-                System.out.println("-------------------------------------------");
-                PlayerAi playerai = new PlayerAi(playerboardarray);
-                int bluejack= playerai.Bluejack();
-                if(bluejack==1) {
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
+                   System.out.println();
+                   System.out.println("-------------------------------------------");
 
-                    playerWins=+3;
-                    break;
-
-                }
-                boolean controlplayer = playerai.ai();
-                if (controlplayer) {
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
-
-                    Playerwins();
-                    playerWins++;
-                    break;
-
-                }
+               }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 System.out.println();
                 System.out.println();
                 System.out.println();
                 System.out.println("Bilgisayarın Oynaması");
-                System.out.println("-------------------------------------------");
-                System.out.print("Computer Hand: ");
-                for (String b : computer_hand) {
-                    if (!(b == null)) {
-                        System.out.print(b + " ");
+
+                if(!(standcomputer)) {
+                    System.out.println("-------------------------------------------");
+                    System.out.print("Computer Hand: ");
+                    for (String b : computer_hand) {
+                        if (!(b == null)) {
+                            System.out.print(b + " ");
+                        }
                     }
-                }
-                System.out.println();
-                System.out.println("-------------------------------------------");
-                System.out.print("Computer Board: ");
-                if(c>0) {
-                    computerboardarray = computerboard.boardComputer();
-                }
-
-
-
-                for (String f : computerboardarray) {
-                    if (!(f == null)) {
-                        System.out.print(f);
+                    System.out.println();
+                    System.out.println("-------------------------------------------");
+                    System.out.print("Computer Board: ");
+                    if (c > 0) {
+                        computerboardarray = computerboard.boardComputer();
                     }
-                }
-                ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
-                int bluejack1 =computerai.Bluejack();
-                boolean control = computerai.ai();
-                System.out.println();
-                System.out.println("-------------------------------------------");
 
-                System.out.print("Player Board: ");
-                playerboard.printPlayerBoard();
-                System.out.println();
-                System.out.println("-------------------------------------------");
 
-                System.out.print("Player Hand : ");
-                for (String a : player_hand) {
-                    if (!(a == null)) {
-                        System.out.print(a + " ");
+                    for (String f : computerboardarray) {
+                        if (!(f == null)) {
+                            System.out.print(f);
+                        }
                     }
-                }
+                    ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
+                    //int bluejack1 =computerai.Bluejack();
+                     control = computerai.ai();
+                     if(!(control==0)) {
+                         standcomputer=true;
+                     }
+                    System.out.println();
+                    System.out.println("-------------------------------------------");
+
+                    System.out.print("Player Board: ");
+                    playerboard.printPlayerBoard();
+                    System.out.println();
+                    System.out.println("-------------------------------------------");
+
+                    System.out.print("Player Hand : ");
+                    for (String a : player_hand) {
+                        if (!(a == null)) {
+                            System.out.print(a + " ");
+                        }
+                    }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-                System.out.println();
-                System.out.println("-------------------------------------------");
+                    System.out.println();
+                    System.out.println("-------------------------------------------");
+                }
                 c++;
+                PlayerAi playerai = new PlayerAi(playerboardarray);
 
-                if(bluejack1==1) {
+                int bluejack = playerai.Bluejack();
+                if (bluejack == 1) {
                     System.out.println();
                     System.out.println();
                     System.out.println();
                     System.out.println();
+                    System.out.println("Bluejack by player");
+                    playerWins = +3;
+                    break;
+                }
 
+               /* if(bluejack1==1) {
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println();
+                    System.out.println("Bluejack by computer");
                     computerWins=+3;
                     break;
-                }
-                if (control) {
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
-                    System.out.println();
+                }*/
 
-                    Computerwins();
-                    computerWins++;
-                    break;
+                int controlplayer = playerai.ai();
 
+                if(!(control==0)||!(controlplayer==0)) {
+                    if(control>controlplayer) {
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+
+                        Computerwins();
+                        computerWins++;
+                        break;
+
+                    } else if(control<controlplayer) {
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+
+                        Playerwins();
+                        playerWins++;
+                        break;
+
+                    } else {
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+                        System.out.println();
+
+                        Draw();
+                        break;
+                    }
                 }
             }
 
 
         }
-        if (playerWins > 3) {
+        if (playerWins >= 3) {
             System.out.println("Player is the overall winner!");
-        } else if(computerWins > 3) {
+        } else if(computerWins >= 3) {
             System.out.println("Computer is the overall winner!");
         }
     }
