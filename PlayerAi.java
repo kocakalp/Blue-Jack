@@ -51,12 +51,10 @@ public class PlayerAi {
                     sum+=d;
                 }
             }
-            if(sum==20) {
-                return 20;
-            } else if (sum>20) {
+            if(sum>=20) {
                 return sum;
             }
         }
-        return 0;
+        return -100;
     }
 }

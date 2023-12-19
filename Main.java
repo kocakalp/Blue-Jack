@@ -41,6 +41,7 @@ public class Main {
             boolean stand = false;
             boolean standcomputer = false;
             int control =0;
+            boolean dontwanttorun=false;
         /*for(String b : computer_hand) {
             System.out.println(b);
 
@@ -361,9 +362,10 @@ public class Main {
                    System.out.print("Computer Hand: ");
 
                    for (String b : computer_hand) {
-                       System.out.print(b + " ");
+                       if (!(b == null)) {
+                           System.out.print(b + " ");
+                       }
                    }
-
                    System.out.println();
                    System.out.println("-------------------------------------------");
 
@@ -395,9 +397,17 @@ public class Main {
                 System.out.println();
                 System.out.println();
                 System.out.println();
-                System.out.println("Bilgisayarın Oynaması");
-
                 if(!(standcomputer)) {
+                System.out.println("Bilgisayarın Oynaması");
+                    if (c > 0) {
+                        computerboardarray = computerboard.boardComputer();
+                    }
+                    ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
+                    //int bluejack1 =computerai.Bluejack();
+                    control = computerai.ai();
+                    if(control!=-100) {
+                        standcomputer=true;
+                    }
                     System.out.println("-------------------------------------------");
                     System.out.print("Computer Hand: ");
                     for (String b : computer_hand) {
@@ -408,9 +418,7 @@ public class Main {
                     System.out.println();
                     System.out.println("-------------------------------------------");
                     System.out.print("Computer Board: ");
-                    if (c > 0) {
-                        computerboardarray = computerboard.boardComputer();
-                    }
+
 
 
                     for (String f : computerboardarray) {
@@ -418,12 +426,7 @@ public class Main {
                             System.out.print(f);
                         }
                     }
-                    ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
-                    //int bluejack1 =computerai.Bluejack();
-                     control = computerai.ai();
-                     if(!(control==0)) {
-                         standcomputer=true;
-                     }
+
                     System.out.println();
                     System.out.println("-------------------------------------------");
 
@@ -468,36 +471,102 @@ public class Main {
 
                 int controlplayer = playerai.ai();
 
-                if(!(control==0)||!(controlplayer==0)) {
-                    if(control>controlplayer) {
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
+                if(controlplayer!=-100||stand) {
+                     dontwanttorun=true;
+                     stand = true;
+                }
 
-                        Computerwins();
-                        computerWins++;
-                        break;
+                if(standcomputer && dontwanttorun ) {
+                    if(controlplayer>20) {
+                        if(control>20) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
 
-                    } else if(control<controlplayer) {
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
+                            Draw();
+                            break;
 
-                        Playerwins();
-                        playerWins++;
-                        break;
+                        } else if(control<=20&&control>0) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Computerwins();
+                            computerWins++;
+                            break;
+                        }
+
+                    } else if(controlplayer==20) {
+                        if(control==20) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Draw();
+                            break;
+
+                        } else {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Playerwins();
+                            playerWins++;
+                            break;
+                        }
 
                     } else {
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
-                        System.out.println();
+                        if(control==20) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
 
-                        Draw();
-                        break;
+                            Computerwins();
+                            computerWins++;
+                            break;
+
+                        } else if(controlplayer<control) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Computerwins();
+                            computerWins++;
+                            break;
+
+                        } else if(controlplayer>control) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Playerwins();
+                            playerWins++;
+                            break;
+
+                        } else if(controlplayer==control) {
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+                            System.out.println();
+
+                            Draw();
+                            break;
+                        }
+
                     }
+
+
+
+
+
+
                 }
             }
 
