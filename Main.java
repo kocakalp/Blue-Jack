@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -21,8 +23,6 @@ public class Main {
         Scanner sc= new Scanner(System.in);
         int playerWins = 0;
         int computerWins = 0;
-        System.out.println("Enter your name...");
-        String name=sc.nextLine();
         while(playerWins < 3 && computerWins < 3) {
             GameDeck game = new GameDeck();
 
@@ -414,16 +414,37 @@ public class Main {
             System.out.println("Computer is the overall winner!");
         }
 
+        System.out.println("Enter your name...");
+        String name=sc.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
         Formatter f = null;
         FileWriter fw = null;
 
         try {
-            fw = new FileWriter ("players.txt" , true);
-            f = new Formatter (fw);
-            f. format("%s:%s - Computer:%s, %s \n",name, playerWins, computerWins,LocalDate.now().format(formatter) );
+            // Read existing entries from the file
+            String[] entries = readEntries("players.txt");
+
+            // Add the new entry
+            String newEntry = String.format("%s:%s - Computer:%s, %s", name, playerWins, computerWins, LocalDate.now().format(formatter));
+
+            // Shift the array to make room for the new entry
+            for (int i = entries.length - 1; i > 0; i--) {
+                entries[i] = entries[i - 1];
+            }
+
+            // Insert the new entry at the beginning of the array
+            entries[0] = newEntry;
+
+            // Write the updated entries back to the file
+            fw = new FileWriter("players.txt");
+            f = new Formatter(fw);
+            for (String entry : entries) {
+                if (entry != null) {
+                    f.format("%s%n", entry);
+                }
+            }
         } catch (Exception e) {
-            System.err.println("Something went wrong." );
+            System.err.println("Unable to write to the file....");
         } finally {
             try {
                 if (f != null) {
@@ -436,16 +457,32 @@ public class Main {
                 System.err.println("Error closing file.");
             }
         }
-
-
-
-
-
-
-
-
-
-
     }
+
+    private static String[] readEntries(String fileName) {
+        String[] entries = new String[10];
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int index = 0;
+            while ((line = reader.readLine()) != null && index < entries.length) {
+                entries[index++] = line;
+            }
+        } catch (Exception e) {
+            System.err.println("Unable to read from the file....");
+        }
+        return entries;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
