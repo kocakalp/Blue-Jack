@@ -1,4 +1,8 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.Formatter ;
+import java.io.FileWriter ;
 public class Main {
     public static void Computerwins() {
         System.out.println();
@@ -14,9 +18,11 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
         int playerWins = 0;
         int computerWins = 0;
-
+        System.out.println("Enter your name...");
+        String name=sc.nextLine();
         while(playerWins < 3 && computerWins < 3) {
             GameDeck game = new GameDeck();
 
@@ -36,7 +42,6 @@ public class Main {
             ComputerBoard computerboard = new ComputerBoard(gamedeck);
             String[] computerboardarray = computerboard.boardComputer();
 
-            Scanner sc= new Scanner(System.in);
             int c=0;
             boolean stand = false;
             boolean standcomputer = false;
@@ -408,6 +413,39 @@ public class Main {
         } else if(computerWins >= 3) {
             System.out.println("Computer is the overall winner!");
         }
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
+        Formatter f = null;
+        FileWriter fw = null;
+
+        try {
+            fw = new FileWriter ("players.txt" , true);
+            f = new Formatter (fw);
+            f. format("%s:%s - Computer:%s, %s \n",name, playerWins, computerWins,LocalDate.now().format(formatter) );
+        } catch (Exception e) {
+            System.err.println("Something went wrong." );
+        } finally {
+            try {
+                if (f != null) {
+                    f.close();
+                }
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (Exception e) {
+                System.err.println("Error closing file.");
+            }
+        }
+
+
+
+
+
+
+
+
+
+
     }
 
 }

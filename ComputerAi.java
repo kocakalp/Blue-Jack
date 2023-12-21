@@ -89,6 +89,7 @@ public class ComputerAi {
             if(!(computerboardarray[i]==null)) {
                 String holder=computerboardarray[i];
                 if(holder.equals("(+/-)")||holder.equals("X2")) {
+                   // int tmp = Integer.parseInt(computerboardarray[i-1]);
                     continue;
 
                 }else if(holder.substring(1,3).equals("10")) {

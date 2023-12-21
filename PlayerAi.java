@@ -82,6 +82,8 @@ public class PlayerAi {
 
                 } else if(holder.substring(1,3).equals("10")) {
                     holder=holder.substring(0,3);
+                    d =Integer.parseInt(holder);
+                    sum+=d;
 
                 }  else {
                     holder=holder.substring(0,2);
