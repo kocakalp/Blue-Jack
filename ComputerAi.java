@@ -12,24 +12,31 @@ public class ComputerAi {
         this.playerDeckComputer = new PlayerDeckComputer(computer_hand);
     }
 
-   /* public int Bluejack() {
+   public int Bluejack() {
         int sum=0;
         int d=0;
         int i=0;
         for( i=0;i<computerboardarray.length;i++) {
             if (!(computerboardarray[i] == null)) {
                 String holder = computerboardarray[i];
-                if(holder.substring(1,3).equals("10")) {
+                if(holder.equals("(+/-)")||holder.equals("X2")) {
+                    continue;
+
+                }else if(holder.substring(1,3).equals("10")) {
                     if(holder.substring(3,4).equals("B")) {
                         holder=holder.substring(0,3);
                         d =Integer.parseInt(holder);
                         sum+=d;
+                    } else {
+                        return 0;
                     }
                 } else {
                     if(holder.substring(2,3).equals("B")) {
                         holder=holder.substring(0,2);
                         d =Integer.parseInt(holder);
                         sum+= d;
+                    } else {
+                        return 0;
                     }
                 }
             }
@@ -43,19 +50,27 @@ public class ComputerAi {
             for(int f=0;f<computer_hand.length;f++) {
                 if (!(computer_hand[f] == null)) {
                     String holder = computer_hand[f];
-                    if(holder.substring(1,3).equals("10")) {
+                    if(holder.equals("(+/-)")||holder.equals("X2")) {
+                        continue;
+
+                    }else if(holder.substring(1,3).equals("10")) {
                         if(holder.substring(3,4).equals("B")) {
                             holder=holder.substring(0,3);
                             d =Integer.parseInt(holder);
                             sum+=d;
+                        } else {
+                            return 0;
                         }
                     } else {
                         if(holder.substring(2,3).equals("B")) {
                             holder=holder.substring(0,2);
                             d =Integer.parseInt(holder);
+                            sum+=d;
+                        } else {
+                            return 0;
                         }
                     }
-                    if(sum+d==20) {
+                    if(sum==20) {
                         computerboardarray[i + 1] = computer_hand[f];
                         computer_hand[f] = null;
                         return 1;
@@ -64,7 +79,7 @@ public class ComputerAi {
             }
         }
         return 0;
-    }*/
+    }
 
     public int ai() {
         int sum=0;
@@ -73,7 +88,10 @@ public class ComputerAi {
         for( i=0;i<computerboardarray.length;i++) {
             if(!(computerboardarray[i]==null)) {
                 String holder=computerboardarray[i];
-                if(holder.substring(1,3).equals("10")) {
+                if(holder.equals("(+/-)")||holder.equals("X2")) {
+                    continue;
+
+                }else if(holder.substring(1,3).equals("10")) {
                     holder=holder.substring(0,3);
                     d =Integer.parseInt(holder);
                     sum+=d;
@@ -96,11 +114,13 @@ public class ComputerAi {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
                     String holder=computer_hand[f];
-                    if(holder.substring(1,3).equals("10")) {
+                     if(holder.equals("(+/-)")||holder.equals("X2")) {
+                        continue;
+
+                    }else if(holder.substring(1,3).equals("10")) {
                         holder=holder.substring(0,3);
                         d =Integer.parseInt(holder);
-
-                    }else {
+                    }  else {
                         holder=holder.substring(0,2);
                         d =Integer.parseInt(holder);
 
@@ -120,16 +140,19 @@ public class ComputerAi {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
                     String holder=computer_hand[f];
-                    if(holder.substring(1,3).equals("10")) {
+                     if(holder.equals("(+/-)")||holder.equals("X2")) {
+                        continue;
+
+                    } else if(holder.substring(1,3).equals("10")) {
                         holder=holder.substring(0,3);
                         d =Integer.parseInt(holder);
                         sum+=d;
-                    }else {
+                    } else {
                         holder=holder.substring(0,2);
                         d =Integer.parseInt(holder);
                         sum+=d;
                     }
-                    if(sum+d==20) {
+                    if(sum==20) {
                         computerboardarray[i+1]=computer_hand[f];
                         computer_hand[f]=null;
                         return 20;

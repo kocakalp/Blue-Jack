@@ -403,7 +403,7 @@ public class Main {
                         computerboardarray = computerboard.boardComputer();
                     }
                     ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
-                    //int bluejack1 =computerai.Bluejack();
+                    int bluejack1 =computerai.Bluejack();
                     control = computerai.ai();
                     if(control!=-100) {
                         standcomputer=true;
@@ -459,7 +459,7 @@ public class Main {
                     break;
                 }
 
-               /* if(bluejack1==1) {
+                /*if(bluejack1==1) {
                     System.out.println();
                     System.out.println();
                     System.out.println();
