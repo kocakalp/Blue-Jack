@@ -137,6 +137,7 @@ public class ComputerAi {
                 computer_hand[indexOfLargestSum] = null;
                 return largestSum;
             }
+            return sum;
         } else {
             for(int f=0;f<computer_hand.length;f++) {
                 if(!(computer_hand[f]==null)) {
@@ -157,6 +158,8 @@ public class ComputerAi {
                         computerboardarray[i+1]=computer_hand[f];
                         computer_hand[f]=null;
                         return 20;
+                    } else {
+                        sum-=d;
                     }
                 }
             }

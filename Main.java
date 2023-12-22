@@ -40,7 +40,8 @@ public class Main {
             String[] playerboardarray = playerboard.boardPlayer();
 
             ComputerBoard computerboard = new ComputerBoard(gamedeck);
-            String[] computerboardarray = computerboard.boardComputer();
+            String[] computerboardarray = new String [9];
+
 
             int c=0;
             boolean stand = false;
@@ -64,13 +65,9 @@ public class Main {
         */
             System.out.println("Computer :"+computerWins );
             System.out.println("Player :"+playerWins );
-
-            System.out.println("Oyun Sahasının görünümü");
-
             System.out.println();
             System.out.println();
-
-
+            System.out.println("Game Field");
             System.out.println("-------------------------------------------");
             System.out.print("Computer Hand: ");
 
@@ -107,7 +104,9 @@ public class Main {
                 System.out.println();
                 System.out.println();
                 System.out.println();
+
                if(!(stand)) {
+                   System.out.println("Your Turn");
                    System.out.println("-------------------------------------------");
                    System.out.print("Computer Hand: ");
                    for (String b : computer_hand) {
@@ -197,7 +196,7 @@ public class Main {
                    System.out.println();
                    System.out.println();
 
-                   System.out.println("OYUNCUNUN HARKETİNİN GÖZÜKMESİ");
+                   System.out.println("Player's Movement");
 
                    System.out.println("-------------------------------------------");
                    System.out.print("Computer Hand: ");
@@ -239,10 +238,8 @@ public class Main {
                 System.out.println();
                 System.out.println();
                 if(!(standcomputer)) {
-                System.out.println("Bilgisayarın Oynaması");
-                    if (c > 0) {
-                        computerboardarray = computerboard.boardComputer();
-                    }
+                    System.out.println("Computer's Turn");
+                    computerboardarray = computerboard.boardComputer();
                     ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
                     int bluejack1 =computerai.Bluejack();
                     control = computerai.ai();
@@ -260,13 +257,7 @@ public class Main {
                     System.out.println("-------------------------------------------");
                     System.out.print("Computer Board: ");
 
-
-
-                    for (String f : computerboardarray) {
-                        if (!(f == null)) {
-                            System.out.print(f);
-                        }
-                    }
+                    computerboard.printComputerBoard();
 
                     System.out.println();
                     System.out.println("-------------------------------------------");
@@ -320,7 +311,7 @@ public class Main {
                      stand = true;
                 }
 
-                if(standcomputer && dontwanttorun ) {
+                if((standcomputer && dontwanttorun)||(controlplayer>=20||control>=20)) {
                     if(controlplayer>20) {
                         if(control>20) {
                             System.out.println();
@@ -331,7 +322,7 @@ public class Main {
                             Draw();
                             break;
 
-                        } else if(control<=20&&control>0) {
+                        } else if(control<=20) {
                             System.out.println();
                             System.out.println();
                             System.out.println();
