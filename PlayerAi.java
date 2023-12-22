@@ -11,6 +11,10 @@ public class PlayerAi {
         for(String a : playerboardarray) {
             if (!(a == null)) {
                 String holder=a;
+                if(holder.equals("(+/-)")||holder.equals("X2")) {
+                    return 0;
+
+                }
                 if(holder.substring(1,3).equals("10")) {
                     if(holder.substring(3,4).equals("B")) {
                         holder=holder.substring(0,3);
@@ -31,6 +35,8 @@ public class PlayerAi {
             }
             if(sum==20) {
                 return 1;
+            } else {
+                sum-=d;
             }
         }
         return 0;

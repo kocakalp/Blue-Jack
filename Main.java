@@ -56,6 +56,7 @@ public class Main {
             boolean standcomputer = false;
             int control =0;
             boolean dontwanttorun=false;
+            int bluejack1=0;
         /*for(String b : computer_hand) {
             System.out.println(b);
 
@@ -249,10 +250,13 @@ public class Main {
                     System.out.println("Computer's Turn");
                     computerboardarray = computerboard.boardComputer();
                     ComputerAi computerai = new ComputerAi(computer_hand, computerboardarray);
-                    int bluejack1 =computerai.Bluejack();
-                    control = computerai.ai();
-                    if(control!=-100) {
-                        standcomputer=true;
+                     bluejack1 =computerai.Bluejack();
+
+                    if(bluejack1!=1) {
+                        control = computerai.ai();
+                        if(control!=-100) {
+                            standcomputer=true;
+                        }
                     }
                     System.out.println("-------------------------------------------");
                     System.out.print("Computer Hand: ");
@@ -302,7 +306,7 @@ public class Main {
                     break;
                 }
 
-                /*if(bluejack1==1) {
+                if(bluejack1==1) {
                     System.out.println();
                     System.out.println();
                     System.out.println();
@@ -310,7 +314,7 @@ public class Main {
                     System.out.println("Bluejack by computer");
                     computerWins=+3;
                     break;
-                }*/
+                }
 
                 int controlplayer = playerai.ai();
 
