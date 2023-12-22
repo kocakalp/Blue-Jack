@@ -18,6 +18,14 @@ public class Main {
         System.out.println();
         System.out.println("No one gets point");
     }
+    public static void Space() {
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+
+    }
 
     public static void main(String[] args) {
         Scanner sc= new Scanner(System.in);
@@ -313,88 +321,60 @@ public class Main {
 
                 if((standcomputer && dontwanttorun)||(controlplayer>=20||control>=20)) {
                     if(controlplayer>20) {
-                        if(control>20) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
 
+                        if(control>20) {
+                            Space();
                             Draw();
                             break;
-
                         } else if(control<=20) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
+                            Space();
                             Computerwins();
                             computerWins++;
                             break;
                         }
 
                     } else if(controlplayer==20) {
-                        if(control==20) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
 
+                        if(control==20) {
+                            Space();
                             Draw();
                             break;
-
                         } else {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
+                            Space();
                             Playerwins();
                             playerWins++;
                             break;
                         }
 
-                    } else {
+                    } else if(controlplayer<20) {
+
                         if(control==20) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
+                            Space();
                             Computerwins();
                             computerWins++;
                             break;
-
-                        } else if(controlplayer<control) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
-                            Computerwins();
-                            computerWins++;
-                            break;
-
-                        } else if(controlplayer>control) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
+                        } else if(control>20) {
+                            Space();
                             Playerwins();
                             playerWins++;
                             break;
-
-                        } else if(controlplayer==control) {
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-                            System.out.println();
-
-                            Draw();
-                            break;
+                        } else if(control<20) {
+                            if(controlplayer<control) {
+                                Space();
+                                Computerwins();
+                                computerWins++;
+                                break;
+                            } else if(controlplayer>control) {
+                                Space();
+                                Playerwins();
+                                playerWins++;
+                                break;
+                            } else if(controlplayer==control) {
+                                Space();
+                                Draw();
+                                break;
+                            }
                         }
-
                     }
                 }
             }
@@ -405,7 +385,7 @@ public class Main {
             System.out.println("Computer is the overall winner!");
         }
 
-        System.out.println("Enter your name...");
+        System.out.println("Player enter your name...");
         String name=sc.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd");
         Formatter f = null;
